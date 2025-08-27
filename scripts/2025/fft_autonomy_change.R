@@ -180,4 +180,7 @@ fft_change <- fft_change %>% select(c("name","campminder_id","24_future_pos_sub"
 
 write_xlsx(fft_change, 'data/2025/fft_change_24-25.xlsx')
 
+# Next steps must take place in IVY using protected student data. 
+
+
                                       
