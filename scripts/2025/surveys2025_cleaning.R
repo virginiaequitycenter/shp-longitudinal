@@ -55,22 +55,22 @@ shp_survey <- shp_survey %>% mutate_at(c("aa_1","aa_2","aa_3","aa_4","aa_5",
 # Flip Score of Negative Questions                   
 ##############################################################
 
-shp_survey <- shp_survey %>% mutate(`aa_1`= 5- `aa_1`)
-shp_survey <- shp_survey %>% mutate(`aa_3`= 5- `aa_3`)
-shp_survey <- shp_survey %>% mutate(`aa_5`= 5- `aa_5`)
-shp_survey <- shp_survey %>% mutate(`ea_1`= 5- `ea_1`)
-shp_survey <- shp_survey %>% mutate(`ea_2`= 5- `ea_2`)
-shp_survey <- shp_survey %>% mutate(`ea_4`= 5- `ea_4`)
-shp_survey <- shp_survey %>% mutate(`ea_5`= 5- `ea_5`)
-shp_survey <- shp_survey %>% mutate(`fa_2`= 5- `fa_2`)
-shp_survey <- shp_survey %>% mutate(`aftrs_3`= 5- `aftrs_3`)
-shp_survey <- shp_survey %>% mutate(`aftrs_6`= 5- `aftrs_6`)
-shp_survey <- shp_survey %>% mutate(`aftrs_8`= 5- `aftrs_8`)
-shp_survey <- shp_survey %>% mutate(`aftrs_10`= 5- `aftrs_10`)
-shp_survey <- shp_survey %>% mutate(`aftrs_11`= 5- `aftrs_11`)
-shp_survey <- shp_survey %>% mutate(`aftrs_13`= 5- `aftrs_13`)
-shp_survey <- shp_survey %>% mutate(`aftrs_14`= 5- `aftrs_14`)
-shp_survey <- shp_survey %>% mutate(`aftrs_15`= 5- `aftrs_15`)
+shp_survey <- shp_survey %>% mutate(`aa_1`= 5- `aa_1`+1)
+shp_survey <- shp_survey %>% mutate(`aa_3`= 5- `aa_3`+1)
+shp_survey <- shp_survey %>% mutate(`aa_5`= 5- `aa_5`+1)
+shp_survey <- shp_survey %>% mutate(`ea_1`= 5- `ea_1`+1)
+shp_survey <- shp_survey %>% mutate(`ea_2`= 5- `ea_2`+1)
+shp_survey <- shp_survey %>% mutate(`ea_4`= 5- `ea_4`+1)
+shp_survey <- shp_survey %>% mutate(`ea_5`= 5- `ea_5`+1)
+shp_survey <- shp_survey %>% mutate(`fa_2`= 5- `fa_2`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_3`= 5- `aftrs_3`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_6`= 5- `aftrs_6`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_8`= 5- `aftrs_8`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_10`= 5- `aftrs_10`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_11`= 5- `aftrs_11`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_13`= 5- `aftrs_13`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_14`= 5- `aftrs_14`+1)
+shp_survey <- shp_survey %>% mutate(`aftrs_15`= 5- `aftrs_15`+1)
 
 ##############################################################
 # Create Subscale Averages/ Total Averages
