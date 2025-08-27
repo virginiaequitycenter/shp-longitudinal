@@ -35,7 +35,7 @@ a_fft_25 <- a_fft_25 %>% select(!c("avg_res","valued_sub","mentoring_sub",
                                    "race_category","race_self_id","gender"))
 
 ##############################################################
-# Merge to Create Change Dataset
+# Merge to Create Autonomy Change Dataset
 ##############################################################
 
 autonomy_change_24 <- a_fft_24 %>% select(!contains("aftrs"))  
@@ -55,7 +55,7 @@ colnames(autonomy_change_25) <- c("name","campminder_id","grad_year",
 autonomy_change <- merge(x=autonomy_change_24,y=autonomy_change_25)
 
 ##############################################################
-# Create Change Values
+# Create Autonomy Change Values
 ##############################################################
 
 autonomy_change <- autonomy_change %>% add_column(aa_1_c=0)
@@ -100,3 +100,84 @@ autonomy_change <- autonomy_change %>% mutate(fa_sub_c=`25_fa_sub`-`24_fa_sub`)
 autonomy_change <- autonomy_change %>% add_column(avg_autonomy_c=0)
 autonomy_change <- autonomy_change %>% mutate(avg_autonomy_c=`25_avg_autonomy`-`24_avg_autonomy`)
 
+autonomy_change <- autonomy_change %>% select(c("name","campminder_id","24_aa_sub","24_ea_sub","24_fa_sub",
+                                                "24_avg_autonomy","25_aa_sub","25_ea_sub","25_fa_sub","25_avg_autonomy",
+                                                "aa_1_c","aa_2_c","aa_3_c","aa_4_c","aa_5_c","ea_1_c","ea_2_c",
+                                                "ea_3_c","ea_4_c","ea_5_c","fa_1_c","fa_2_c","fa_3_c","fa_4_c","fa_5_c",
+                                                "aa_sub_c","ea_sub_c","fa_sub_c","avg_autonomy_c"))
+
+write_xlsx(autonomy_change, 'data/2025/autonomy_change_24-25.xlsx')
+
+##############################################################
+# Merge to Create Future Forward Thinking Change Dataset
+##############################################################
+
+fft_change_24 <- a_fft_24 %>% select(!contains(c("aa","ea","fa","autonomy","aftrs_5")))
+colnames(fft_change_24) <- c("name","campminder_id","24_aftrs_1","24_aftrs_2","24_aftrs_3",
+                             "24_aftrs_4","24_aftrs_6","24_aftrs_7","24_aftrs_8","24_aftrs_9",
+                             "24_aftrs_10","24_aftrs_11","24_aftrs_12","24_aftrs_13","24_aftrs_14",
+                             "24_aftrs_15","24_future_pos_sub","24_maladaptive_sub",
+                             "24_vis_sub","24_avg_aftrs")
+
+
+fft_change_25 <- a_fft_25 %>% select(!contains(c("aa","ea","fa","autonomy")))
+colnames(fft_change_25) <- c("name","campminder_id","25_aftrs_1","25_aftrs_2","25_aftrs_3",
+                             "25_aftrs_4","25_aftrs_6","25_aftrs_7","25_aftrs_8","25_aftrs_9",
+                             "25_aftrs_10","25_aftrs_11","25_aftrs_12","25_aftrs_13","25_aftrs_14",
+                             "25_aftrs_15","25_future_pos_sub","25_maladaptive_sub",
+                             "25_vis_sub","25_avg_aftrs")
+
+fft_change <- merge(x=fft_change_24,y=fft_change_25)
+
+##############################################################
+# Create FFT Change Values
+##############################################################
+
+fft_change <- fft_change %>% add_column(aftrs_1_c=0)
+fft_change <- fft_change %>% mutate(aftrs_1_c=`25_aftrs_1`-`24_aftrs_1`)
+fft_change <- fft_change %>% add_column(aftrs_2_c=0)
+fft_change <- fft_change %>% mutate(aftrs_2_c=`25_aftrs_2`-`24_aftrs_2`)
+fft_change <- fft_change %>% add_column(aftrs_3_c=0)
+fft_change <- fft_change %>% mutate(aftrs_3_c=`25_aftrs_3`-`24_aftrs_3`)
+fft_change <- fft_change %>% add_column(aftrs_4_c=0)
+fft_change <- fft_change %>% mutate(aftrs_4_c=`25_aftrs_4`-`24_aftrs_4`)
+fft_change <- fft_change %>% add_column(aftrs_6_c=0)
+fft_change <- fft_change %>% mutate(aftrs_6_c=`25_aftrs_6`-`24_aftrs_6`)
+fft_change <- fft_change %>% add_column(aftrs_7_c=0)
+fft_change <- fft_change %>% mutate(aftrs_7_c=`25_aftrs_7`-`24_aftrs_7`)
+fft_change <- fft_change %>% add_column(aftrs_8_c=0)
+fft_change <- fft_change %>% mutate(aftrs_8_c=`25_aftrs_8`-`24_aftrs_8`)
+fft_change <- fft_change %>% add_column(aftrs_9_c=0)
+fft_change <- fft_change %>% mutate(aftrs_9_c=`25_aftrs_9`-`24_aftrs_9`)
+fft_change <- fft_change %>% add_column(aftrs_10_c=0)
+fft_change <- fft_change %>% mutate(aftrs_10_c=`25_aftrs_10`-`24_aftrs_10`)
+fft_change <- fft_change %>% add_column(aftrs_11_c=0)
+fft_change <- fft_change %>% mutate(aftrs_11_c=`25_aftrs_11`-`24_aftrs_11`)
+fft_change <- fft_change %>% add_column(aftrs_12_c=0)
+fft_change <- fft_change %>% mutate(aftrs_12_c=`25_aftrs_12`-`24_aftrs_12`)
+fft_change <- fft_change %>% add_column(aftrs_13_c=0)
+fft_change <- fft_change %>% mutate(aftrs_13_c=`25_aftrs_13`-`24_aftrs_13`)
+fft_change <- fft_change %>% add_column(aftrs_14_c=0)
+fft_change <- fft_change %>% mutate(aftrs_14_c=`25_aftrs_14`-`24_aftrs_14`)
+fft_change <- fft_change %>% add_column(aftrs_15_c=0)
+fft_change <- fft_change %>% mutate(aftrs_15_c=`25_aftrs_15`-`24_aftrs_15`)
+
+fft_change <- fft_change %>% add_column(future_pos_sub_c=0)
+fft_change <- fft_change %>% mutate(future_pos_sub_c=`25_future_pos_sub`-`24_future_pos_sub`)
+fft_change <- fft_change %>% add_column(maladaptive_sub_c=0)
+fft_change <- fft_change %>% mutate(maladaptive_sub_c=`25_maladaptive_sub`-`24_maladaptive_sub`)
+fft_change <- fft_change %>% add_column(vis_sub_c=0)
+fft_change <- fft_change %>% mutate(vis_sub_c=`25_vis_sub`-`24_vis_sub`)
+fft_change <- fft_change %>% add_column(avg_aftrs_c=0)
+fft_change <- fft_change %>% mutate(avg_aftrs_c=`25_avg_aftrs`-`24_avg_aftrs`)
+
+fft_change <- fft_change %>% select(c("name","campminder_id","24_future_pos_sub","24_maladaptive_sub","24_vis_sub",
+                                      "24_avg_aftrs","25_future_pos_sub","25_maladaptive_sub","25_vis_sub",
+                                      "25_avg_aftrs","aftrs_1_c","aftrs_2_c","aftrs_3_c","aftrs_4_c","aftrs_6_c",
+                                      "aftrs_7_c","aftrs_8_c","aftrs_9_c","aftrs_10_c","aftrs_11_c","aftrs_12_c",
+                                      "aftrs_13_c","aftrs_14_c","aftrs_15_c","future_pos_sub_c",
+                                      "maladaptive_sub_c","vis_sub_c","25_avg_aftrs"))
+
+write_xlsx(fft_change, 'data/2025/fft_change_24-25.xlsx')
+
+                                      
